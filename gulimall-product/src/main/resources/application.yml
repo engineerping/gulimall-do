@@ -1,0 +1,12 @@
+### Log level
+logging:
+  level:
+    org.springframework: DEBUG
+
+
+#### Default server port #########
+#server:
+#  port: 9000
+
+
+
