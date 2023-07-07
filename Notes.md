@@ -16,6 +16,19 @@
 
 `chmod -R 777 /Volumes/dockermnt/`
 
+
+将 名为 mysql8 的容器改为自动启动
+
+`
+sudo docker update mysql8 --restart=always
+`
+
+
+运行如下命令进入 名为 mysql8 容器的 交互式终端
+`
+docker exec -it mysql8 /bin/bash
+`
+
 2. resis
 
     `
@@ -31,6 +44,23 @@
 
 redis 自描述文件：
 https://raw.githubusercontent.com/antirez/redis/4.0/redis.conf
+
+将 redis 容器改为自动启动
+
+`
+sudo docker update redis --restart=always
+`
+
+可运行以下命令进入 redis 容器，配置容器或者使用 redis-cli
+`
+1327  dk exec -it redis bash
+1328  dk logs redis
+1331  vim redis.conf
+1332  dk restart redis
+1334  dk exec -it redis redis-cli
+`
+
+
    
 3. springboot initializer 生成脚手架代码
    springboot initializer生成脚手架代码时，只能选较高的 springboot version 
@@ -84,4 +114,14 @@ protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable O
 throws BeanCreationException {
 `
 
+6.不需要下载 powerdesigner 打开 pdh 和 pdm 文件，（必要是再下载 powerdesigner查看表设计）
+直接在 github 上找
+gulimall_oms.sql
+gulimall_pms.sql
+gulimall_sms.sql
+gulimall_ums.sql
+gulimall_wms.sql
+这几个文件来创建数据库、并创建其中的表，已放在本项目的 docs 目录下。
 
+注意，大型项目的表之间都不建立 ***外键***，表中数据的 ***外键*** 关系通过service层的代码来维护。
+避免增删改需要对多张表进行操作，影响数据库的效率
