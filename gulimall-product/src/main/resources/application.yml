@@ -5,8 +5,8 @@ logging:
 
 
 #### Default server port #########
-#server:
-#  port: 9000
+server:
+  port: 9000
 
 
 
