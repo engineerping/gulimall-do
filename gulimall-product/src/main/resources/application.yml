@@ -19,7 +19,9 @@ spring:
 
 #Tell Mybatis that where the object-table-mapping files (mapper.xml) are.
 mybatis-plus:
-#  mapper-locations: classpath*:/mapper/**/*.xml
+# See the Doc of Interface com.baomidou.mybatisplus.core.mapper.BaseMapper<T> extends Mapper<T>
+# Mapper 继承该 BaseMapper 接口后，无需编写 mapper.xml 文件，即可获得CRUD功能,即不需要mapper-locations配置了
+# mapper-locations: classpath*:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto #primary key increases automatically for ALL TABLES
