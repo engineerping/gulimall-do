@@ -1,15 +1,26 @@
 server:
   port: 80
 
-# mysql
+### Log level
+logging:
+  level:
+    org.springframework: DEBUG
+
+#激活子配置文件
 spring:
+  profiles:
+    active: coupon
+
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
+###在自配置文件中覆盖该配置-start###
+    #mysql
     #MySQL配置
-    driverClassName: com.mysql.cj.jdbc.Driver #for Mysql8.0 and later
-    url: jdbc:mysql://localhost:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: root
+#    driverClassName: com.mysql.cj.jdbc.Driver #for Mysql8.0 and later
+#    url: jdbc:mysql://localhost:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: root
+###在自配置文件中覆盖该配置-end###
     #oracle配置
     #    driverClassName: oracle.jdbc.OracleDriver
     #    url: jdbc:oracle:thin:@47.100.206.162:1521:xe
