@@ -5,7 +5,7 @@ logging:
 
 #### Default server port #########
 server:
-  port: 9001
+  port: 9002
 
 # config the DataSource:
 spring:
