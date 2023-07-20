@@ -3,10 +3,6 @@ logging:
   level:
     org.springframework: DEBUG
 
-#### Default server port #########
-server:
-  port: 9000
-
 # config the DataSource:
 spring:
   datasource:
@@ -26,4 +22,7 @@ mybatis-plus:
     db-config:
       id-type: auto #primary key increases automatically for ALL TABLES
 
+#### Default server port #########
+server:
+  port: 10000
 

@@ -1,0 +1,28 @@
+### Log level
+logging:
+  level:
+    org.springframework: DEBUG
+
+# config the DataSource:
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/gulimall_ums
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      max-lifetime: 50000
+
+mybatis-plus:
+  #Tell Mybatis that where the object-table-mapping files (mapper.xml) are.
+  # 使用了@org.apache.ibatis.annotations.Mapper注解之后,就不需要mapper-locations配置了。mapper.xml已经备份成了 zip 包，
+  # 原 mapper.xml文件已删除
+  # mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto #primary key increases automatically for ALL TABLES
+
+
+#### Default server port #########
+server:
+  port: 8000

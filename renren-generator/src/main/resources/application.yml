@@ -9,7 +9,7 @@ logging:
 #激活子配置文件
 spring:
   profiles:
-    active: coupon
+    active: ware
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
