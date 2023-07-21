@@ -42,6 +42,19 @@ public class CouponController {
         return R.ok().put("page", page);
     }
 
+    /**
+     *
+     * 定义一个普通的 Controller 类的方法共其他服务调用
+     * 来返回某个会员所拥有的全部优惠券
+     * @return
+     */
+    @RequestMapping("/member/list")
+    public R memberCoupons(){
+        //TODO: 这是一个 hardcode 模拟 的优惠券，实际上应该从数据库查询
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("满100减10");
+        return R.ok().put("coupons", Arrays.asList(couponEntity));
+    }
 
     /**
      * 信息
