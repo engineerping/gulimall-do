@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: gulimall-coupon
+  cloud:
+    nacos:
+      serverAddr: 127.0.0.1:8848 #这里是 Nacos 作为配置中心的地址， 其值与 Nacos 作为注册中心的值是一样的
+  config:
+    import:
+      - nacos:nacos-config-example.properties?refresh=true

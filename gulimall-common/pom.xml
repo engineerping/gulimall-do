@@ -98,9 +98,16 @@
             <artifactId>validation-api</artifactId>
         </dependency>
 
+        <!--  使用 Nacos 做注册中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!--  使用 Nacos 做配置中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
     </dependencies>
 
