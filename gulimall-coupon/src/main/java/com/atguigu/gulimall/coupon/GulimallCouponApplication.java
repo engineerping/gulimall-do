@@ -9,6 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @MapperScan("com.atguigu.gulimall.coupon.dao")
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableFeignClients(basePackages = "com.atguigu.gulimall.coupon.feign")
 public class GulimallCouponApplication {
 
 	public static void main(String[] args) {
