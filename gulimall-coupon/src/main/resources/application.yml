@@ -31,4 +31,9 @@ mybatis-plus:
 #### Default server port #########
 server:
   port: 7001 #7000 was listing by controlCe
-
+#For Nacos  configcenter
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

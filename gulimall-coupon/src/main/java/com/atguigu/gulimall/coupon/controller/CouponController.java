@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,11 +28,27 @@ import com.atguigu.common.utils.R;
  * @email gongchengship@163.com
  * @date 2023-07-20 11:05:31
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${user.name}") //由于括号中的这个参数（user.name）的原因，这个变量将获取 OS 中用Shell 执行 whoami 命令得到的结果
+    private String name;
+
+    @Value(value = "${anyprefix.user.name}") //从 Nacos 或者从 application.properties文件中读取键值对
+    private String myName;
+
+    @Value(value = "${anyprefix.user.age}") //从 Nacos 或者从 application.properties文件中读取键值对
+    private Integer age;
+
+    @RequestMapping("test/nacos/configcenter")
+    public R testforNacosConfigcenter(){
+        return R.ok().put("name", name).put("myName", myName).put("age", age);
+    }
+
 
     /**
      * 列表
