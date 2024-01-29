@@ -11,17 +11,18 @@ spring:
       routes: #route 是 spring-cloud-gateway 的基本工作单位, command + Mouse-left 点进去能发现 routes 的值是一个List
         - id: route_baidu # 1.在 routes (注意这里的 复数 s)下定义一个 route 每一个路由 route 都应该有一个 id, 或者称为名字
           predicates: #(predicates在这里应翻译为'断言'，而不是'谓词')
-            - Path=/baidu # 2.判断 原始请求, 是佛满足该断言;本例中是判断如果请求路径 中是否包含 "/baidu"字样 如 localhost:88/baidu 这个请求就会被匹配为 true
+            - Path=/baidu # 2.判断 客户端原始请求, 是佛满足该断言;本例中是判断如果请求路径 中是否包含 "/baidu"字样 如 localhost:88/baidu 这个请求就会被匹配为 true
+           # - Query=url,zhihu #可见一个 route 下的多个 "断言" 默认是 "逻辑and" 关系
           filters: # 3.(Filter chain 过滤器链)如果断言结果为 true ，则允许将请求路由给目标 uri ,但在到达目标 uri 之前和之后), 会依次执行锁配置的如下 filter
             - AddRequestParameter=ie, utf-8
             - AddRequestParameter=wd, hello
-            - RemoveRequestParameter
-          uri: https://www.baidu.com  #原始请求经过一系列 filters 之后会被发送给这个目标 uri 。
+            #- RemoveRequestParameter=q #Spring-cloud-gateway-2.1.3Release中尚未加入RemoveRequestParameter,后来版本的 gateway 才加入的
+          uri: https://www.baidu.com  #4.断言结果为 true 后,原始请求经过一系列 filters 之后会被发送给这个目标 uri 。
 
-        #可以定义多个 route, 再定义另一个 route
-        - id: route_qq
+        - id: route_vue # #可以定义多个 route, 再定义另一个 route
           predicates:
-            - Path=/jianshu
+            - Path=/vue
           filters:
-            - AddRequestParameter=q, hi
-          uri: https://www.jianshu.com/search
+          uri: https://cn.vuejs.org/
+
+
