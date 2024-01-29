@@ -48,6 +48,30 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- For Enable Swagger3 Start-->
+		<!--
+        Note, For adapting to the maven election results, this dependency must be placed in each component's own pom, and cannot be placed in any common pom.xml (such as gulimall-common's pom.xml)
+        注意,为了适应 maven 选举结果,这个 dependency 必须放在每个 component 自身的 pom 之中,而不能放在任何 common pom.xml (例如 gulimall-common的 pom.xml)之中
+        -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+			<exclusions>
+				<!-- For fixing maven election results -->
+				<exclusion>
+					<groupId>org.springframework.plugin</groupId>
+					<artifactId>spring-plugin-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.plugin</groupId>
+			<artifactId>spring-plugin-core</artifactId>
+			<version>2.0.0.RELEASE</version>
+		</dependency>
+		<!-- For enable Swagger3 End-->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

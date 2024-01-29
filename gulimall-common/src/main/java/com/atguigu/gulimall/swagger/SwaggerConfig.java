@@ -15,8 +15,9 @@ import java.util.ArrayList;
 /**
  * @author  gongchengship@163.com
  */
-@Configuration
-// This is not required for swagger to work
+
+@Configuration //本行这个 @Configuration 注解 不是必须的,因为这个类是专门用于被其他的 Configuration 类锁继承的.
+// This is not required for swagger to work, 这个类对于让 swagger 开始工作而言, 不是必须的
 public class SwaggerConfig {
 
     /**

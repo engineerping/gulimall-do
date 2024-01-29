@@ -8,12 +8,11 @@ logging:
 spring:
   cloud:
     gateway:
-      routes: #command + Mouse-left 点进去能发现 routes 的值是一个List
-        #定义一个最简单的 route
-        - id: route_baidu #每一个路由都应该有一个 id, 或者称为名字
+      routes: #route 是 spring-cloud-gateway 的基本工作单位, command + Mouse-left 点进去能发现 routes 的值是一个List
+        - id: route_baidu # 1.在 routes (注意这里的 复数 s)下定义一个 route 每一个路由 route 都应该有一个 id, 或者称为名字
           predicates: #(predicates在这里应翻译为'断言'，而不是'谓词')
-            - Path=/baidu #判断如果请求路径 中是否包含 "/baidu"字样 如 localhost:88/baidu 这个请求就会被匹配为 true
-          filters: #(Filter chain 过滤器链)如果断言结果为 true ，则依次执行如下 filter
+            - Path=/baidu # 2.判断 原始请求, 是佛满足该断言;本例中是判断如果请求路径 中是否包含 "/baidu"字样 如 localhost:88/baidu 这个请求就会被匹配为 true
+          filters: # 3.(Filter chain 过滤器链)如果断言结果为 true ，则允许将请求路由给目标 uri ,但在到达目标 uri 之前和之后), 会依次执行锁配置的如下 filter
             - AddRequestParameter=ie, utf-8
             - AddRequestParameter=wd, hello
             - RemoveRequestParameter
