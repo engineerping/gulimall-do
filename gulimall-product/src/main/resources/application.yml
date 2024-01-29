@@ -32,3 +32,6 @@ mybatis-plus:
 server:
   port: 10000
 
+### For enable swagger
+swagger:
+  enabled: true

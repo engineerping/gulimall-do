@@ -19,13 +19,6 @@
     </properties>
 
     <dependencies>
-        <!-- The starter of mybatis plus  -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -109,6 +102,36 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
+
+        <!-- For Enable Swagger3 Start-->
+        <!--
+        Note, For adapting to the maven election results, this dependency must be placed in each component's own pom,
+        and cannot be placed in any common pom.xml (such as gulimall-common's pom.xml),
+        The reason why it appears in this pom.xml file is because the com.atguigu.gulimall.swagger.SwaggerConfig class
+        needs to reference the classes in the springfox-boot-starter package.
+
+        注意,为了适应 maven 选举结果,这个 dependency 必须放在每个 component 自身的 pom 之中,
+        而不能放在任何 common pom.xml (例如 gulimall-common的 pom.xml)之中,
+        之所以出现在这个 pom.xml 文件中,是因为 com.atguigu.gulimall.swagger.SwaggerConfig类中需要引用springfox-boot-starter包中的类
+        -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+            <exclusions>
+                <!-- For fixing maven election results -->
+                <exclusion>
+                    <groupId>org.springframework.plugin</groupId>
+                    <artifactId>spring-plugin-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.plugin</groupId>
+            <artifactId>spring-plugin-core</artifactId>
+            <version>2.0.0.RELEASE</version>
+        </dependency>
+        <!-- For enable Swagger3 End-->
     </dependencies>
 
     <dependencyManagement>
