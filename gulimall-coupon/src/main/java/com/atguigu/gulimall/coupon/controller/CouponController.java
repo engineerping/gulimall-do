@@ -5,6 +5,7 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -28,6 +29,7 @@ import com.atguigu.common.utils.R;
  * @email gongchengship@163.com
  * @date 2023-07-20 11:05:31
  */
+@Slf4j
 @RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
@@ -69,6 +71,7 @@ public class CouponController {
      */
     @RequestMapping("/member/list")
     public R memberCoupons(){
+        log.info("<call coupon ...>");
         //TODO: 这是一个 hardcode 模拟 的优惠券，实际上应该从数据库查询
         CouponEntity couponEntity = new CouponEntity();
         couponEntity.setCouponName("满100减10");
