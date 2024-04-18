@@ -159,6 +159,8 @@ $RECYCLE.BIN/
 *.iws
 *.iml
 *.ipr
+workspace.xml
+misc.xml
 
 ### NetBeans ###
 /nbproject/private/
