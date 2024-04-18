@@ -187,8 +187,3 @@ target
 .gradle
 README.html
 .exercism
-/gulimall-product/.gitignore
-/gulimall-coupon/.gitignore
-/gulimall-member/.gitignore
-/gulimall-order/.gitignore
-/gulimall-ware/.gitignore
