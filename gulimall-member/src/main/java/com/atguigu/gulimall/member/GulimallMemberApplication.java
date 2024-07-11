@@ -22,8 +22,9 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @EnableOpenApi
 @MapperScan("com.atguigu.gulimall.member.dao")
 @SpringBootApplication
+//For Nacos
 @EnableDiscoveryClient
-//为 Springboot 启动 FienClient的功能；
+//为 Springboot 启动 FeignClient的功能；
 //参数basePackages是让 Springboot 启动时，去扫描basePackages路径下的标注了@FeignClient的接口，为之生成实现类，无参则扫启动类所在的整个包
 @EnableFeignClients(basePackages = "com.atguigu.gulimall.member.feign")
 public class GulimallMemberApplication {

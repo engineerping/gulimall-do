@@ -5,8 +5,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient("gulimall-coupon") //这里声明该接口是一个 Feign客户端，参数填入注册中心中的一个 spring.application.name，用于声明将会通过网络去调用注册中心里的那一个远程服务
-public interface CouponFeignService { //虽然这个类名叫做 xxxService，但它所提供的服务仅仅是接收一个请求，然后自己再通过网络去请求外部服务获取所需的数据
+@FeignClient("gulimall-coupon") //这里声明该接口是一个 Feign客户端，参数填入注册中心中的一个 spring.application.name，用于声明将会通过网络去调用注册中心里的哪一个远程服务
+public interface CouponFeignService { //虽然这个类名叫做 xxxService，但它所提供的服务仅仅是:作为一个http 客户端, 客户端中的fetchCouponsOfOneMember()方法通过网络去请求其他服务获取所需的数据.
     @GetMapping("/coupon/coupon/member/list") //括号里要写 URL 的全路径
     public R fetchCouponsOfOneMember();
 }
